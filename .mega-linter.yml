@@ -1,0 +1,7 @@
+---
+# Configuration for MegaLinter
+# https://megalinter.io/latest/configuration/
+
+DISABLE_LINTERS:
+  - ACTION_ZIZMOR
+  - SPELL_LYCHEE

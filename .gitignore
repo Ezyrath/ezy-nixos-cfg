@@ -1,0 +1,17 @@
+# Nix build artifacts
+result
+result-*
+
+# Deploy, secrets and private keys
+deploy/
+secrets/
+.sops.yaml
+*.age
+*.key
+
+# System facter
+facter.json
+
+# Development & tools
+.direnv/
+megalinter-reports/
