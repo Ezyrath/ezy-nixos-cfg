@@ -202,10 +202,10 @@ in {
     };
 
     # Configure Journald retention
-    journald.extraConfig = ''
-      SystemMaxUse=1G
-      MaxRetentionSec=1month
-    '';
+    journald.settings.Journal = {
+      SystemMaxUse = "1G";
+      MaxRetentionSec = "1month";
+    };
 
     # Configure OpenSSH daemon.
     openssh.settings = {
