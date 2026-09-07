@@ -1,8 +1,8 @@
 # ezy-nixos-cfg
 
-[![CI](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/ci.yml/badge.svg)](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/ci.yml)
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
-[![code style: alejandra](https://img.shields.io/badge/code_style-alejandra-27ae60.svg)](https://github.com/kamadorueda/alejandra)
+[![CI](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/ci.yml/badge.svg)](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/ci.yml)
+[![Deps Update](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/flake-update.yml/badge.svg)](https://github.com/Ezyrath/ezy-nixos-cfg/actions/workflows/flake-update.yml)
 
 Declarative, reproducible NixOS configurations for workstations and servers.
 
