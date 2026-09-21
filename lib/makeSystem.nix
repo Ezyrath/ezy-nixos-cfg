@@ -87,6 +87,7 @@ with inputs;
             nixpkgs.overlays = [
               (_final: _prev: {
                 ezy-tools = ezy-tools.packages.${system}.default;
+                ezy-tools-dev = ezy-tools.packages.${system}.dev;
               })
               (final: _prev: {
                 stable = import nixpkgs-stable {

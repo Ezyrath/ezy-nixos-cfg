@@ -12,6 +12,7 @@ in {
   home = {
     packages = [
       pkgs.ezy-tools
+      pkgs.ezy-tools-dev
     ];
 
     # Generate SSH known_hosts file with strict permissions (600) to avoid "Bad owner or permissions"
