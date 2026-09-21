@@ -11,6 +11,18 @@
       xdg-utils
       yubioath-flutter # Yubico Authenticator (GUI: OATH, FIDO2, PIV, OTP slots)
       nvtopPackages.full # GPU process monitor (AMD/Intel/Nvidia)
+
+      # desktop & creative applications (native FOSS)
+      audacity
+      blender
+      gimp
+      inkscape
+      kdePackages.kcalc
+      keepassxc
+      krita
+      obs-studio
+      qpwgraph
+      vlc
     ];
 
     plasma6.excludePackages = with pkgs.kdePackages; [
