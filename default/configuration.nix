@@ -181,7 +181,7 @@ in {
     # dev
     git
     git-lfs
-    git-annex
+    #git-annex
     pre-commit
     nixfmt
     shfmt
