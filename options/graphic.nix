@@ -21,6 +21,7 @@
       keepassxc
       krita
       obs-studio
+      proton-pass
       qpwgraph
       vlc
     ];
