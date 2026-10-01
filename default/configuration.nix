@@ -179,6 +179,7 @@ in {
     p7zip
 
     # dev
+    gh
     git
     git-lfs
     #git-annex
