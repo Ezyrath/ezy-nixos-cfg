@@ -9,6 +9,7 @@
     systemPackages = with pkgs; [
       setxkbmap
       xdg-utils
+      wl-clipboard
       yubioath-flutter # Yubico Authenticator (GUI: OATH, FIDO2, PIV, OTP slots)
       nvtopPackages.full # GPU process monitor (AMD/Intel/Nvidia)
 
