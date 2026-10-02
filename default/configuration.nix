@@ -147,6 +147,7 @@ in {
     usbutils
     pciutils # lspci
     fastfetch
+    fetch
     vim
     file
     tree
@@ -154,6 +155,7 @@ in {
     curl
     ripgrep # rg
     fd # faster find
+    lsof
     ncdu # disk space visualizer
     imagemagick
     ghostscript
