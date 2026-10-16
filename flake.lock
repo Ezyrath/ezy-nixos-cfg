@@ -43,11 +43,11 @@
         "wl-inject": "wl-inject"
       },
       "locked": {
-        "lastModified": 1791897525,
-        "narHash": "sha256-ZzsLM7adbDRdTZZPEqzY/g7MgAdZ2f01uunN22efTDQ=",
+        "lastModified": 1792159500,
+        "narHash": "sha256-DMbQX2aCnLEiZcTmyPJotoa51fKjYjSo/PtRXnFTwXk=",
         "owner": "Ezyrath",
         "repo": "ezy-tools",
-        "rev": "70b06494827648944ce4b0cfb1eef28800253191",
+        "rev": "624a9f02fa66301be9bf3077453a4c3ff2a02e08",
         "type": "github"
       },
       "original": {
