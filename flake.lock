@@ -43,11 +43,11 @@
         "wl-inject": "wl-inject"
       },
       "locked": {
-        "lastModified": 1791202464,
-        "narHash": "sha256-z2arZk+boiSxhRYTT1dlSh7bP9mJ6wVQOLziCUOyIsY=",
+        "lastModified": 1791897525,
+        "narHash": "sha256-ZzsLM7adbDRdTZZPEqzY/g7MgAdZ2f01uunN22efTDQ=",
         "owner": "Ezyrath",
         "repo": "ezy-tools",
-        "rev": "fb12adb30c4f90e2873fbb8274e1ef382f021e2b",
+        "rev": "70b06494827648944ce4b0cfb1eef28800253191",
         "type": "github"
       },
       "original": {
@@ -392,11 +392,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783637831,
-        "narHash": "sha256-2VTjfK9+k3qQo0x7n4LbAnYK18f6slVwPlbwULpYttw=",
+        "lastModified": 1791410802,
+        "narHash": "sha256-kFvRAfFZ/KQB3hTIHEvG40YE49VOOeExM6MAaKqTraU=",
         "owner": "Ezyrath",
         "repo": "wl-inject",
-        "rev": "ae2184e6e339c2527cd6404fd1dea4de3b92af0d",
+        "rev": "9ac2dc4b5973159ae84c1b4a324f75ed681a99e0",
         "type": "github"
       },
       "original": {
