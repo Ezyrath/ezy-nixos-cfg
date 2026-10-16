@@ -40,14 +40,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "ue-linux-win64": "ue-linux-win64",
         "wl-inject": "wl-inject"
       },
       "locked": {
-        "lastModified": 1792161614,
-        "narHash": "sha256-li/JpXl1L6+y6JsKBmYDflrdqehPy0jlhThYpo/ZIDA=",
+        "lastModified": 1792185683,
+        "narHash": "sha256-T4iUFKyXxXSXyTa8Sb8l2m/NIXnIYLgz0+HOpXMWce8=",
         "owner": "Ezyrath",
         "repo": "ezy-tools",
-        "rev": "abf31ce92f48ba13c7d929c8bc9045588d5694e7",
+        "rev": "23e8c32801383828b7d67f13c0f023688e16920b",
         "type": "github"
       },
       "original": {
@@ -380,6 +381,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "ue-linux-win64": {
+      "inputs": {
+        "nixpkgs": [
+          "ezy-tools",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792185602,
+        "narHash": "sha256-rJ9Lsecox8gFXRxDAO6AtdaTMR6FLFxUfIBI+KgT3qU=",
+        "owner": "Ezyrath",
+        "repo": "ue-linux-win64",
+        "rev": "c1312a2cddef1f1714ce51de1fcfac35fa06337e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ezyrath",
+        "repo": "ue-linux-win64",
         "type": "github"
       }
     },
