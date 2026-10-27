@@ -10,7 +10,7 @@ _: {
       "com.heroicgameslauncher.hgl"
       "com.valvesoftware.Steam"
       "org.prismlauncher.PrismLauncher"
-      "dev.vencord.Vesktop"
+      "com.discordapp.Discord"
       "com.rustdesk.RustDesk"
       "io.edcd.EDMarketConnector"
 
