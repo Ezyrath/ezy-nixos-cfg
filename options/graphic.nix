@@ -104,6 +104,9 @@
 
     # KDE Connect
     kdeconnect.enable = true;
+
+    # disable KDE PIM suite (Kontact, KMail, Merkuro, Akonadi)
+    kde-pim.enable = false;
   };
 
   # open KDE Connect ports; the allowedTCPPortRanges/allowedUDPPortRanges set
