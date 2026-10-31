@@ -2,6 +2,16 @@ _: {
   services.flatpak = {
     enable = true;
     #update.onActivation = true;
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+      }
+      {
+        name = "flatpark";
+        location = "https://dl.flatpark.org/flatpark.flatpakrepo";
+      }
+    ];
     packages = [
       # applications
       "com.github.tchx84.Flatseal"
@@ -20,6 +30,7 @@ _: {
 
       #{ flatpakref = "<uri>"; sha256="<hash>"; }
       #{ appId = "APP_ID"; origin = "flathub";  commit=<hash>; }
+      #{ appId = "APP_ID"; origin = "flatpark"; }
     ];
     overrides = {
       global = {
