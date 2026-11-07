@@ -45,9 +45,16 @@
           ".android" # android config
           ".var" # flatpak apps data
           ".rustup" # rustup data
+          "Games" # games data (Star Citizen / RSI Launcher)
         ];
       };
     };
+  };
+
+  # binary cache for nix-citizen (Star Citizen)
+  nix.settings = {
+    substituters = ["https://nix-citizen.cachix.org"];
+    trusted-public-keys = ["nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="];
   };
 
   # user packages (graphics related)
@@ -95,6 +102,12 @@
   programs = {
     # enable gamemode (CPU/GPU optimizations for gaming)
     gamemode.enable = true;
+
+    # enable Star Citizen (RSI Launcher via nix-citizen)
+    rsi-launcher = {
+      enable = true;
+      includeOverlay = false;
+    };
 
     # enable virt-manager
     virt-manager.enable = true;

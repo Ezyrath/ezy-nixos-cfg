@@ -29,6 +29,7 @@ with inputs;
         impermanence.nixosModules.impermanence
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
+        nix-citizen.nixosModules.default
 
         ../default/configuration.nix
         ../default/network.nix
@@ -88,6 +89,12 @@ with inputs;
               (_final: _prev: {
                 ezy-tools = ezy-tools.packages.${system}.default;
                 ezy-tools-dev = ezy-tools.packages.${system}.dev;
+                inherit
+                  (nix-citizen.packages.${system})
+                  lug-helper
+                  rsi-launcher
+                  wine-astral
+                  ;
               })
               (final: _prev: {
                 stable = import nixpkgs-stable {
