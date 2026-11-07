@@ -395,18 +395,31 @@ _: {
     '';
   };
 
-  # set default applications
-  xdg.mimeApps = {
-    enable = true;
-    associations.added = {
-      "x-scheme-handler/http" = ["com.google.Chrome.desktop"];
-      "x-scheme-handler/https" = ["com.google.Chrome.desktop"];
-      "text/html" = ["com.google.Chrome.desktop"];
-    };
-    defaultApplications = {
-      "x-scheme-handler/http" = ["com.google.Chrome.desktop"];
-      "x-scheme-handler/https" = ["com.google.Chrome.desktop"];
-      "text/html" = ["com.google.Chrome.desktop"];
+  # set default applications and lsfg-vk configuration
+  xdg = {
+    configFile."lsfg-vk/conf.toml".text = ''
+      version = 1
+
+      [global]
+      dll = "/home/ezyrath/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
+
+      [[game]]
+      exe = "StarCitizen.exe"
+      multiplier = 2
+    '';
+
+    mimeApps = {
+      enable = true;
+      associations.added = {
+        "x-scheme-handler/http" = ["com.google.Chrome.desktop"];
+        "x-scheme-handler/https" = ["com.google.Chrome.desktop"];
+        "text/html" = ["com.google.Chrome.desktop"];
+      };
+      defaultApplications = {
+        "x-scheme-handler/http" = ["com.google.Chrome.desktop"];
+        "x-scheme-handler/https" = ["com.google.Chrome.desktop"];
+        "text/html" = ["com.google.Chrome.desktop"];
+      };
     };
   };
 }
