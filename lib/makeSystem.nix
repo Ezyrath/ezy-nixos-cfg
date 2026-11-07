@@ -91,16 +91,51 @@ with inputs;
                 mesa64 = citizenPkgs.mesa;
                 mesa32 = citizenPkgs.pkgsi686Linux.mesa;
                 lsfgVk = citizenPkgs.lsfg-vk;
+                rawWineAstral = nix-citizen.packages.${system}.wine-astral;
+                # Fix Star Citizen cursor offset after Alt-Tab / window focus change on Wayland:
+                # nix-citizen applies winewayland-prefer-relative-pointer.patch (keeping
+                # pointer.relative_mode = TRUE permanently) but blacklists LUG's companion
+                # winewayland-no-enter-move-if-relative.patch. Without it, pointer_handle_enter
+                # calls pointer_handle_motion_internal(sx, sy) on every wl_pointer::enter,
+                # shifting Win32's cursor position while WM_INPUT receives (0, 0).
+                wineAstralPatched =
+                  citizenPkgs.runCommand "${rawWineAstral.name}-wayland-enter-fix" {
+                    inherit (rawWineAstral) pname version meta passthru;
+                  } ''
+                    mkdir -p "$out/lib/wine"
+                    cp -a "${rawWineAstral}/bin" "$out/bin"
+                    cp -a "${rawWineAstral}/lib/wine/x86_64-unix" "$out/lib/wine/x86_64-unix"
+                    ln -s "${rawWineAstral}/include" "$out/include"
+                    ln -s "${rawWineAstral}/share" "$out/share"
+                    ln -s "${rawWineAstral}/lib/wine/i386-windows" "$out/lib/wine/i386-windows"
+                    ln -s "${rawWineAstral}/lib/wine/x86_64-windows" "$out/lib/wine/x86_64-windows"
+
+                    so="$out/lib/wine/x86_64-unix/winewayland.so"
+                    chmod u+w "$so"
+                    orig=$(od -An -tx1 -j $((0x128d2)) -N 32 "$so" | tr -d ' \n')
+                    expected="4489f78b75d44883c4085b415c415d415e415f5d31c031c931d24531c04531c9"
+                    if [ "$orig" != "$expected" ]; then
+                      echo "Unexpected bytes in winewayland.so at 0x128d2: $orig" >&2
+                      exit 1
+                    fi
+                    # Check pointer.relative_mode (0x160) and jump to return epilogue (0x128f7) if active
+                    printf '\x83\xbb\x60\x01\x00\x00\x00\x75\x1c\x44\x89\xf7\x8b\x75\xd4\x48\x83\xc4\x08\x5b\x41\x5c\x41\x5d\x41\x5e\x41\x5f\x5d\x31\xc0\x90' \
+                      | dd of="$so" bs=1 seek=$((0x128d2)) conv=notrunc status=none
+                    chmod u-w "$so"
+                  '';
               in {
                 ezy-tools = ezy-tools.packages.${system}.default;
                 ezy-tools-dev = ezy-tools.packages.${system}.dev;
                 inherit
                   (nix-citizen.packages.${system})
                   lug-helper
-                  wine-astral
                   ;
+                wine-astral = wineAstralPatched;
                 rsi-launcher = nix-citizen.packages.${system}.rsi-launcher.override (
-                  nixpkgs.lib.optionalAttrs (!withNVIDIA) {
+                  {
+                    wine = wineAstralPatched;
+                  }
+                  // nixpkgs.lib.optionalAttrs (!withNVIDIA) {
                     extraEnvVars = {
                       VK_DRIVER_FILES = "${mesa64}/share/vulkan/icd.d/radeon_icd.x86_64.json:${mesa32}/share/vulkan/icd.d/radeon_icd.i686.json:${mesa64}/share/vulkan/icd.d/intel_icd.x86_64.json:${mesa32}/share/vulkan/icd.d/intel_icd.i686.json";
                       VK_ADD_IMPLICIT_LAYER_PATH = "${lsfgVk}/share/vulkan/implicit_layer.d";
