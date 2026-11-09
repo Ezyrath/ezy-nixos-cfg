@@ -51,6 +51,7 @@ in {
 
   # nix settings and automated maintenance
   nix = {
+    channel.enable = false;
     settings = {
       experimental-features = [
         "nix-command"
