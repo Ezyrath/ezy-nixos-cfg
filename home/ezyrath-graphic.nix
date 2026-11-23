@@ -398,13 +398,14 @@ _: {
   # set default applications and lsfg-vk configuration
   xdg = {
     configFile."lsfg-vk/conf.toml".text = ''
-      version = 1
+      version = 2
 
       [global]
-      dll = "/home/ezyrath/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Lossless Scaling/Lossless.dll"
+      dll = "/home/ezyrath/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/Lossless Scaling/lsfg-vk.dll"
 
-      [[game]]
-      exe = "StarCitizen.exe"
+      [[profile]]
+      name = "Star Citizen"
+      active_in = "StarCitizen.exe"
       multiplier = 2
     '';
 

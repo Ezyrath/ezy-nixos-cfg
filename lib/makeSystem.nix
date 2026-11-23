@@ -86,8 +86,11 @@ with inputs;
 
             # --- nixpkgs overlays for stable, fast channels and custom packages ---
             nixpkgs.overlays = [
-              (_final: _prev: let
-                citizenPkgs = nix-citizen.inputs.nixpkgs.legacyPackages.${system};
+              (final: _prev: let
+                citizenPkgs = import nix-citizen.inputs.nixpkgs {
+                  inherit system;
+                  config.allowUnfree = final.config.allowUnfree;
+                };
                 mesa64 = citizenPkgs.mesa;
                 mesa32 = citizenPkgs.pkgsi686Linux.mesa;
                 lsfgVk = citizenPkgs.lsfg-vk;
