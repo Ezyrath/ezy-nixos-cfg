@@ -27,6 +27,7 @@ _: {
       # runtime dependencies
       "com.github.Matoking.protontricks"
       "runtime/org.freedesktop.Platform.VulkanLayer.lsfgvk/x86_64/25.08"
+      "runtime/org.freedesktop.Platform.VulkanLayer.lsfgvk/x86_64/26.08"
 
       #{ flatpakref = "<uri>"; sha256="<hash>"; }
       #{ appId = "APP_ID"; origin = "flathub";  commit=<hash>; }
