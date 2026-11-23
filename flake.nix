@@ -44,7 +44,7 @@
 
     nix-citizen = {
       url = "github:LovingMelody/nix-citizen";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     plasma-manager = {

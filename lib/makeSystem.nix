@@ -86,35 +86,15 @@ with inputs;
 
             # --- nixpkgs overlays for stable, fast channels and custom packages ---
             nixpkgs.overlays = [
-              (final: _prev: let
-                citizenPkgs = import nix-citizen.inputs.nixpkgs {
-                  inherit system;
-                  config.allowUnfree = final.config.allowUnfree;
-                };
-                mesa64 = citizenPkgs.mesa;
-                mesa32 = citizenPkgs.pkgsi686Linux.mesa;
-                lsfgVk = citizenPkgs.lsfg-vk;
-              in {
+              (_final: _prev: {
                 ezy-tools = ezy-tools.packages.${system}.default;
                 ezy-tools-dev = ezy-tools.packages.${system}.dev;
                 inherit
                   (nix-citizen.packages.${system})
-                  wine-astral
+                  lug-wine-bin
                   lug-helper
+                  rsi-launcher
                   ;
-                rsi-launcher =
-                  if withNVIDIA
-                  then nix-citizen.packages.${system}.rsi-launcher
-                  else
-                    nix-citizen.packages.${system}.rsi-launcher.override {
-                      extraEnvVars = {
-                        VK_DRIVER_FILES = "${mesa64}/share/vulkan/icd.d/radeon_icd.x86_64.json:${mesa32}/share/vulkan/icd.d/radeon_icd.i686.json:${mesa64}/share/vulkan/icd.d/intel_icd.x86_64.json:${mesa32}/share/vulkan/icd.d/intel_icd.i686.json";
-                        VK_ADD_IMPLICIT_LAYER_PATH = "${lsfgVk}/share/vulkan/implicit_layer.d";
-                        LIBGL_DRIVERS_PATH = "${mesa64}/lib/dri:${mesa32}/lib/dri";
-                        __EGL_VENDOR_LIBRARY_DIRS = "${mesa64}/share/glvnd/egl_vendor.d:${mesa32}/share/glvnd/egl_vendor.d";
-                        LIBVA_DRIVERS_PATH = "${mesa64}/lib/dri:${mesa32}/lib/dri";
-                      };
-                    };
               })
               (final: _prev: {
                 stable = import nixpkgs-stable {

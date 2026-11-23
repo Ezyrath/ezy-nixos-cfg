@@ -407,6 +407,7 @@ _: {
       name = "Star Citizen"
       active_in = "StarCitizen.exe"
       multiplier = 2
+      preserve_swapchain_image_count = true
     '';
 
     mimeApps = {

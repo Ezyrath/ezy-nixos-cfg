@@ -66,6 +66,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = [pkgs.lsfg-vk];
   };
 
   services = {
@@ -106,6 +107,7 @@
     rsi-launcher = {
       enable = true;
       includeOverlay = false;
+      wine = pkgs.lug-wine-bin;
     };
 
     # enable virt-manager
