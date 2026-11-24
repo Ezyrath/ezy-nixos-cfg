@@ -76,6 +76,12 @@
         withSSH = false;
         withGraphic = true;
         #withAMD = true;
+
+        # Disable amdgpu runtime PM (BACO) on desktop with Ryzen iGPU + Radeon dGPU
+        # to prevent DisplayPort hotplug/wake failure when the monitor is turned off.
+        extraConfig = {
+          boot.kernelParams = ["amdgpu.runpm=0"];
+        };
       };
 
       ezy002wks = makeSystem {
